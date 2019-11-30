@@ -1,0 +1,36 @@
+.nav{
+    width: 100%;
+    position: relative;
+    font-size: .36rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: .88rem;
+}
+.back{
+    position: absolute;
+    top:.25rem;
+    left: 0;
+   
+}
+.back i{
+    font-size: .3rem;
+}
+.gouwu i{
+    font-size: .4rem;
+}
+.selecter i{
+    font-size: .4rem;
+}
+.gouwu{
+    position: absolute;
+    top:.25rem;
+    right:2rem;
+}
+.selecter{
+    position: absolute;
+    top:.25rem;
+    right:.5rem;
+}
+
+

@@ -1,7 +1,6 @@
 import React,{Fragment} from "react"
-import Header from "../../common/header/index"
-import regeneratorRuntime from '../../utils/runtime'
-import {SearchList} from "../../api/searchlist/index"
+import Header from "common/header/index"
+import {SearchList} from "api/searchlist/index"
 import {ZhekouStyle } from "./styled"
 class Zhekou extends React.Component{
     render(){

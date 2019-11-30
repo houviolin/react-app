@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const City = styled.div`
+export const CityStyle = styled.div`
 .total{
     display: flex;
     height: 100%;

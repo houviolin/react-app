@@ -1,7 +1,7 @@
 import React from "react"
 import { mapStateToProps, mapDispatchToProps } from "./mapstore"
 import { connect } from "react-redux"
-import { City } from "./styled"
+import { CityStyle } from "./styled"
 class City extends React.Component {
     constructor() {
         super();
@@ -10,12 +10,12 @@ class City extends React.Component {
     render() {
 
         return (
-            <City>
+            <CityStyle>
                 <div className='total'>
                     <div className="left">11</div>
                     <div className="right">22</div>
                 </div>
-            </City>
+            </CityStyle>
 
         )
     }
