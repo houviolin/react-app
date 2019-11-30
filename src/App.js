@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter,Redirect,Switch} from "react-router-dom";
+import routeEach from "./utils/routeEach"
+import {configRoute} from "./router"
+import TabBar from "./common/tabBar"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// console.log(configRoute);
+class App extends React.Component {
+    constructor() {
+        super();
+    }
+    render() {
+        return (
+            <HashRouter>
+                <Switch>
+                    <Redirect from="/" to="/store" exact/>
+                    {routeEach(configRoute)}
+                </Switch>
+                <TabBar/>
+            </HashRouter>
+        )
+    }
 }
 
+
 export default App;
+

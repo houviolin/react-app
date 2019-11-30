@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="reset.css"/>
-    <link rel="stylesheet" href="icon/iconfont.css">
-    <!-- <script src="./flexble.js"></script> -->
-    <script>
-     (function(win, lib) {
+ ;(function(win, lib) {
      var doc = win.document;
      var docEl = doc.documentElement;
      var metaEl = doc.querySelector('meta[name="viewport"]');
@@ -77,7 +67,6 @@
 
      function refreshRem(){
          var width = docEl.getBoundingClientRect().width;
-         
          if (width / dpr > 768) {
              width = 768 * dpr;
          }
@@ -126,9 +115,3 @@
      }
 
  })(window, window['lib'] || (window['lib'] = {}));
-    </script>
-</head>
-<body>
-    <div id="root"></div>
-</body>
-</html>
