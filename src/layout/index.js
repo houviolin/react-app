@@ -10,3 +10,7 @@ export default class Layout extends Component{
         )
     }
 }
+/**
+ * 组件标签内部嵌套的内容如何显示
+ * this.props.children
+ */

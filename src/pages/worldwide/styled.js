@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
 export const WorldWide= styled.div`
+position:absolute;
+top:0;
+left:0;
+background:#fff;
 .worldwide{
     width:100%;
     margin:0 auto;
@@ -112,6 +116,10 @@ export const WorldWide= styled.div`
                 border-bottom:2px solid transparent;
                 font-size:0.28rem;
                 color:#000;
+            }
+            .nav_box.active{
+                color: #FF4C48;
+                border-bottom: 2px solid #ff4c48;
             }
         }
     }

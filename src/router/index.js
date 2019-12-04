@@ -1,4 +1,4 @@
-import {Store,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,SelectStore,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,} from "../pages"
+import {Store,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,Details,Cart} from "../pages"
 
 export const TabBarRoute = [
     {
@@ -9,16 +9,6 @@ export const TabBarRoute = [
         },
         text:"逛商场",
         icon:"\ue612",
-        children:[
-            {
-                path:"/store/selectStore",
-                component:SelectStore,
-                meta:{
-                    flag:false
-                },
-            }
-        ],
-
     },
     {
         path:"/goodgoods",
@@ -122,49 +112,46 @@ export const NotTabBarRoute = [
         path:"/login",
         component:Login,
         meta:{
-            flag:false,
-            requiredAuth:false,
         }
     },
     {
         path:"/register",
         component:Register,
         meta:{
-            flag:false,
-            requiredAuth:false,
         }
     },
     {
         path:"/discount",
         component:Discount,
         text:"好物满减",
-        meta:{
-            flag:true,
-        }
+        meta:{}
     },
     {
         path:"/city",
         component:City,
-        meta:{
-            requiredAuth:false
-        }
+        meta:{}
       
     },
     {
         path:"/search",
         component:Search,
-        meta:{
-            requiredAuth:false
-        }
+        meta:{}
       
     },
     {
         path:"/zhekou",
         component:Zhekou,
-        meta:{
-            requiredAuth:false
-        }
-      
+        meta:{}
+    },
+    {
+        path:"/details/:id",
+        component:Details,
+        meta:{}
+    },
+    {
+        path:"/cart",
+        component:Cart,
+        meta:{}
     }
 ]
 

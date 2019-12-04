@@ -1,0 +1,1 @@
+export const detailsTypes = "DETAILS_TYPE" 

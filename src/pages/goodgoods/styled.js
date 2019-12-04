@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export const GoodGoods = styled.div`
+height:100%;
+overflow:auto;
 .goodgoods{
     width:100%;
     height:100%;
@@ -8,11 +10,12 @@ export const GoodGoods = styled.div`
     padding-bottom:0.5rem;
 }
 .goodgoods_box{
-    display: flex;
+    /* height:100%; */
+    /* display: flex; */
     flex-direction: column;
     overflow: auto;
     align-items: center;
-    padding-bottom:0.5rem;
+    padding-bottom:1rem;
 }
 .header{
     width:7.5rem;
@@ -257,6 +260,7 @@ export const GoodGoods = styled.div`
                 align-items: center;
                 p{
                     height: 0.7rem;
+                    line-height:0.35rem;
                     -webkit-line-clamp: 2;
                     overflow: hidden;
                     display: -webkit-box;

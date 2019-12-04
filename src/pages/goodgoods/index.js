@@ -1,8 +1,11 @@
 import React from "react"
 import "./styled.js"
-import { mainlistApi, citylistApi } from "../../api/goodgoods"
-import {GoodGoods} from "./styled"
-// import { Carousel } from 'antd';
+import { Carousel, } from 'antd-mobile';
+import { GoodGoods } from "./styled"
+import {connect} from "react-redux" 
+import {mapStateToProps,mapDispatchToProps} from "./mapStore"
+@connect(mapStateToProps,mapDispatchToProps)
+
 class Goodgoods extends React.Component {
     constructor() {
         super()
@@ -47,23 +50,24 @@ class Goodgoods extends React.Component {
                     name: "运动装备"
                 },
             ],
+            CarouselList: [
+                "https://img1.tg-img.com/seller/201911/21/2C4B18DD-F4B9-4A46-9D71-3607085A0724.jpg!y",
+                "https://img1.tg-img.com/seller/201911/19/AFB8802F-79A8-4904-8E5E-71840A134EB6.jpg!y",
+                "https://img1.tg-img.com/seller/201911/22/99E77296-B7FC-4D90-B176-2C7B7522EE85.jpg!y",
+                "https://img1.tg-img.com/seller/201911/20/6CE7B85A-52F9-4DDD-B3EF-7F4EBC1DEFF2.gif!y",
+                "https://img1.tg-img.com/seller/201911/21/2C4B18DD-F4B9-4A46-9D71-3607085A0724.jpg!y",
+                "https://img1.tg-img.com/seller/201911/19/AB2CBB6A-4762-4092-AB3F-A76A6153F565.jpg!y",
+            ],
+            imgHeight: 302,
             classIndex: 1,
             headpic: 'https://image1.51tiangou.com/tgou2/img2/dum/dum_dog.png',
-            mainlist: [],
             citylist: [],
         }
-        for (var i = 0; i < 20; i++) {
-            this.handleinfo(10, i, 22228 - i);
-            let num = Math.floor(Math.random() * 10);
-            console.log(num);
-            this.handlSameCity(2554, 10, i, 413300 - num * 100)
-            i += 9;
-        }
-
     }
     render() {
-
-        let { nav1list, nav2list, classIndex, mainlist, headpic, citylist } = this.state;
+        let { nav1list, nav2list, classIndex, headpic,CarouselList,imgHeight } = this.state;
+        let {mainlist,citylist} = this.props;
+        // console.log(mainlist);
         return (
             <GoodGoods className="goodgoods">
                 <div className="goodgoods_box">
@@ -93,14 +97,31 @@ class Goodgoods extends React.Component {
                         }
                     </div>
                     <div className="animate">
-                        {/* <Carousel autoplay>
-                            <img src="https://img1.tg-img.com/seller/201911/21/2C4B18DD-F4B9-4A46-9D71-3607085A0724.jpg!y" alt="" />
-                            <img src="https://img1.tg-img.com/seller/201911/19/AFB8802F-79A8-4904-8E5E-71840A134EB6.jpg!y" alt="" />
-                            <img src="https://img1.tg-img.com/seller/201911/22/99E77296-B7FC-4D90-B176-2C7B7522EE85.jpg!y" alt="" />
-                            <img src="https://img1.tg-img.com/seller/201911/20/6CE7B85A-52F9-4DDD-B3EF-7F4EBC1DEFF2.gif!y" alt="" />
-                            <img src="https://img1.tg-img.com/seller/201911/21/2C4B18DD-F4B9-4A46-9D71-3607085A0724.jpg!y" alt="" />
-                            <img src="https://img1.tg-img.com/seller/201911/19/AB2CBB6A-4762-4092-AB3F-A76A6153F565.jpg!y" alt="" />
-                        </Carousel> */}
+                        <Carousel
+                            autoplay={true}
+                            infinite
+                            // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                            // afterChange={index => console.log('slide to', index)}
+                        >
+                            {CarouselList.map(val => (
+                                <a
+                                    key={val}
+                                    href="http://www.alipay.com"
+                                    style={{ display: 'inline-block', width: '100%', height:imgHeight }}
+                                >
+                                    <img
+                                        src={val}
+                                        alt=""
+                                        style={{ width: '100%', verticalAlign: 'top' }}
+                                        onLoad={() => {
+                                            // fire window resize event to change height
+                                            window.dispatchEvent(new Event('resize'));
+                                            this.setState({ imgHeight: 'auto' });
+                                        }}
+                                    />
+                                </a>
+                            ))}
+                        </Carousel>
                     </div>
                     <div className="nav2">
                         {
@@ -116,9 +137,9 @@ class Goodgoods extends React.Component {
 
                     </div>
                     <div className="nav3">
-                        <span onClick={this.fontClick.bind(this, 1)} className={classIndex == 1 ? 'activefont' : ''}>推荐</span>
-                        <span onClick={this.fontClick.bind(this, 2)} className={classIndex == 2 ? 'activefont' : ''}>同城</span>
-                        <span onClick={this.fontClick.bind(this, 3)} className={classIndex == 3 ? 'activefont' : ''}>关注</span>
+                        <span onClick={this.props.fontClick.bind(this, 1)} className={classIndex === 1 ? 'activefont' : ''}>推荐</span>
+                        <span onClick={this.props.fontClick.bind(this, 2)} className={classIndex === 2 ? 'activefont' : ''}>同城</span>
+                        <span onClick={this.props.fontClick.bind(this, 3)} className={classIndex === 3 ? 'activefont' : ''}>关注</span>
                     </div>
                     <div className="main">
                         <div className="main_box" style={{ display: classIndex == 1 ? 'block' : 'none' }}>
@@ -207,28 +228,42 @@ class Goodgoods extends React.Component {
             </GoodGoods>
         )
     }
-    async handleinfo(pageCount, startNum, recommendId) {
-        // let data = await mainlistApi(pageCount, startNum, recommendId);
-        // let list = this.state.mainlist;
-        // list = list.concat(data.data.data)
-        // this.setState({
-        //     mainlist: list
-        // })
+    componentDidMount(){
+            let i=0;
+            this.props.handleAsyncGood(10, i, 22228 - i);
+            let num = Math.floor(Math.random() * 10);
+            i += 10;
+            this.props.handlSameCity(2554, 10, i, 413734)
+            
+            // this.handleinfo(10, i, 22228 - i);
+            // let num = Math.floor(Math.random() * 10);
+            // console.log(num);
+            // this.handlSameCity(2554, 10, i, 413300 - num * 100)
+            // i += 9;
+        // this.props.handleAsyncGood();
     }
-    async handlSameCity(cityId, pageCount, startNum, startId) {
-        // let data = await citylistApi(cityId, pageCount, startNum, startId);
-        // let list = this.state.citylist;
-        // list = list.concat(data.data.data)
-        // this.setState({
-        //     citylist: list
-        // })
-        // console.log(this.state.citylist)
-    }
-    fontClick(index) {
-        this.setState({
-            classIndex: index
-        })
-    }
+    // async handleinfo(pageCount, startNum, recommendId) {
+    //     // let data = await mainlistApi(pageCount, startNum, recommendId);
+    //     // let list = this.state.mainlist;
+    //     // list = list.concat(data.data.data)
+    //     // this.setState({
+    //     //     mainlist: list
+    //     // })
+    // }
+    // async handlSameCity(cityId, pageCount, startNum, startId) {
+    //     // let data = await citylistApi(cityId, pageCount, startNum, startId);
+    //     // let list = this.state.citylist;
+    //     // list = list.concat(data.data.data)
+    //     // this.setState({
+    //     //     citylist: list
+    //     // })
+    //     // console.log(this.state.citylist)
+    // }
+    // fontClick(index) {
+    //     this.setState({
+    //         classIndex: index
+    //     })
+    // }
 }
 
 export default Goodgoods;

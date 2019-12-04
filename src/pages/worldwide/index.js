@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink, Route } from "react-router-dom"
+import { NavLink,} from "react-router-dom"
 import {WorldWide} from "./styled.js"
 import { TabBarRoute } from "../../router/index"
 class Worldwide extends React.Component {
@@ -10,7 +10,7 @@ class Worldwide extends React.Component {
         }
     }
     render() {
-        console.log(TabBarRoute[3].children);
+        // console.log(TabBarRoute[3].children);
         return (
             <WorldWide className="worldwide">
                 <div className="worldwide_box">

@@ -1,5 +1,5 @@
 import Loadable from "react-loadable";
-import Loading from "../components/loading"
+import Loading from "common/loading"
 
 export const Store = Loadable({
     loader:()=>import("./store"),
@@ -91,5 +91,13 @@ export const Search =Loadable({
 })
 export const Zhekou =Loadable({
     loader:()=>import("./zhekou"),
+    loading:Loading
+})
+export const Details = Loadable({
+    loader:()=>import("./details"),
+    loading:Loading
+})
+export const Cart = Loadable({
+    loader:()=>import("./cart"),
     loading:Loading
 })

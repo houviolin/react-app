@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 class TabBar extends Component {
     render() {
         let { path } = this.props;
+        // console.log(this.props,TabBarRoute)
         return (
             <TabBarContainer>
                 <div id="footer">

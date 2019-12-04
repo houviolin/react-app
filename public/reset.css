@@ -15,7 +15,7 @@ body { color:#333; font:12px "SimSun","宋体","Arial Narrow",HELVETICA; backgro
 a { color:#666; text-decoration:none; }
 /*清除浮动*/
 .clear{clear:both}
-*{box-sizing:border-box}
+*{box-sizing:border-box;padding:0;margin:0}
 body,html{
     height: 100%;
     overflow: hidden;
@@ -23,6 +23,7 @@ body,html{
 
 #root{
     height:100%;
+    position: relative;
 }
 
 
