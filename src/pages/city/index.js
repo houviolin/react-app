@@ -1,12 +1,9 @@
-import React from "react"
-import { mapStateToProps, mapDispatchToProps } from "./mapstore"
-import { connect } from "react-redux"
 import { CityStyle } from "./styled"
+import React from "react"
 class City extends React.Component {
     constructor() {
         super();
     }
-
     render() {
 
         return (
@@ -19,12 +16,5 @@ class City extends React.Component {
 
         )
     }
-
-    // 请求数据
-    componentDidMount() {
-        this.props.handle()
-
-    }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(City)
+export default City

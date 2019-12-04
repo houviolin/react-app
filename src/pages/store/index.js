@@ -1,27 +1,34 @@
 import React from "react"
 import {StoreStyle} from "./styled"
 import {Link} from "react-router-dom"
+import {connect} from "react-redux"
+import Bscroll from "common/bscroll"
+import {mapStateToProps,mapDispatchToProps} from "./mapStore"
+@connect(mapStateToProps,mapDispatchToProps)
+
 class Store extends React.Component{
+    constructor(props){
+        super(props);
+    }
     render(){
+        let {one,two,three,total}=this.props
         return(
-
             <StoreStyle >
-                <div className="color-red">
-
-              
-              <div className="total-container">
-              <div className='header'>
-                    <span className="title">美食1号精品超市</span>
-                    <Link className="tocity" to='/city'>
-                    <i className="iconfont right">&#xe74c;</i>
-                    </Link>
-                
-                    <div className="title-right">
-                        <i className="iconfont cart">&#xe655;</i>
-                        <i className="iconfont message">&#xe610;</i>
+                    <div className="total-container">
+                        <div className='header'>
+                                <span className="title">美食1号精品超市</span>
+                                <Link className="tocity" to='/city'>
+                                <i className="iconfont right">&#xe74c;</i>
+                                </Link>      
+                                <div className="title-right">
+                                    <i className="iconfont cart">&#xe655;</i>
+                                    <i className="iconfont message">&#xe610;</i>
+                                </div>
+                            </div>
                     </div>
-                </div>
-                <div className="serachBox">
+                    <Bscroll  ref="scroll">
+                    <div className="bscontainer">
+                  <div className="serachBox">
                     <div className="searchname">
                        好物搜索
                     </div>
@@ -63,9 +70,6 @@ class Store extends React.Component{
                         <span className="navitem-bottom">门店信息</span>
                     </div>
                 </div>
-                  </div>
-
-                {/* 这加个div */}
                 <div className="colortotal">
                 <div className="swiper-x">
                     <div className="swiperx-container">
@@ -120,8 +124,6 @@ class Store extends React.Component{
                     </div>
                    
                 </div>
-
-
                 <div  className="xianshi">
                        <div className="xianshi-top">
                             <div className="xiashitop-left">
@@ -133,21 +135,28 @@ class Store extends React.Component{
                                 <span className="time">01</span>
                             </div>
                             <div>
-                                <span>查看更多</span>
-                                <i className="iconfont">&#xe74c;</i>
+                                <span className="lookat">查看更多</span>
+                                <i className="iconfont jian">&#xe74c;</i>
                             </div>
                        </div>
 
 
                        <div className="swiperx-container">
-                        <div className="liji">
-                            <div className="jike">
-                                <img src="https://img1.tg-img.com/seller/201906/27/8711942C-C013-4299-8208-CC3B87BA40E2.jpg!m" alt=""/>
-                            </div>
-                            <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                            <div ><span className="jikeprice">￥12.97</span><span className="zhekou">7.6折</span></div>
-                        </div>
-         
+                         
+                         {
+                             one.map((item,index)=>(
+                                 
+                               
+                                    <div className="liji" key={index}>
+                                        <div className="jike">
+                                            <img src={item.imageUrl} alt=""/>
+                                        </div>
+                                        <span className="swiper-bottom jikedetail"></span>
+                             <div ><span className="jikeprice">￥{item. priceString}</span><span className="zhekou">{item.discount}折</span></div>
+                                    </div>
+                                 
+                             ))
+                         }
                     </div>
                 </div>
                 <div className="great">
@@ -155,126 +164,68 @@ class Store extends React.Component{
                             优质生活
                         </div>
                         <div className="total-container">
-                            <div className="greate-container">
-                                <img src="https://img1.tg-img.com/seller/201911/25/91C006B3-22FB-4E7B-B6B2-3E046971ED30.jpg!y" alt=""/>
-                                <div className="detaillist">
-                                    <p className="greate-detail">热闹感恩节</p>
-                                    <span>日式酱油</span><span>￥29.8</span>
-                                </div>
-
-                            </div>
-                            <div className="greate-container">
-                                <img src="https://img1.tg-img.com/seller/201911/25/91C006B3-22FB-4E7B-B6B2-3E046971ED30.jpg!y" alt=""/>
-                                <div className="detaillist">
-                                    <p className="greate-detail">热闹感恩节</p>
-                                    <span>日式酱油</span><span>￥29.8</span>
-                                </div>
-
-                            </div>
-                            <div className="greate-container">
-                                <img src="https://img1.tg-img.com/seller/201911/25/91C006B3-22FB-4E7B-B6B2-3E046971ED30.jpg!y" alt=""/>
-                                <div className="detaillist">
-                                    <p className="greate-detail">热闹感恩节</p>
-                                    <span>日式酱油</span><span>￥29.8</span>
-                                </div>
-
-                            </div>
-                        </div>
-                </div>
-
-
-                <div  className="xianshi xian">
-                       <div className="swiperx-container">
-                            <div className="liji">
-                                <div className="jike">
-                                    <img src="https://img1.tg-img.com/seller/201906/27/8711942C-C013-4299-8208-CC3B87BA40E2.jpg!m" alt=""/>
-                                </div>
-                                    <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
+                            {
+                                two.map((item,index)=>(
+                                    <div className="greate-container" key={index}>
+                                        <img src={item.imageUrl} alt=""/>
+                                        <div className="detaillist">
+                                        <p className="greate-detail">{item.title}</p>
+                                        <span>{item.subTitle}</span>
                                         </div>
                                     </div>
-                            </div> 
+                                ))
+                            }
                         </div>
                 </div>
-
-
-
-
+                <div  className="xianshi xian">
+                       <div className="swiperx-container">
+                           {
+                               three.map((item,index)=>(
+                                <div className="liji" key={index}>
+                                        <div className="jike">
+                                            <img src={item.imageUrl} alt=""/>
+                                        </div>
+                                            <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
+                                                <div ><span className="jikeprice">￥{item.price}</span>
+                                                <div className="littlecart">
+                                                    <i className="iconfont in">&#xe64c;</i>
+                                                </div>
+                                            </div>
+                                </div> 
+                               ))
+                           }
+                        </div>
+                </div>
                 <div className="great">
                         <div className="great-title">
                             为你推荐
                         </div>
                         <div className="total-container">
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-             
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-             
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-             
-                            <div className="greate-container he">
-                                <img src="https://img1.tg-img.com/seller/201910/22/5B0E2FDA-4227-4C63-B086-0F7541F2DDD9.jpg!y" alt=""/>
-                                <span className="swiper-bottom jikedetail">【美食1号】NISSIN日清 始祖鸡汤拉面106g*4 </span>
-                                    <div ><span className="jikeprice">￥6.9</span>
-                                        <div className="littlecart">
-                                            <i className="iconfont in">&#xe64c;</i>
-                                        </div>
-                                    </div>
-                            </div>
-             
-             
-        
-
-
+                            {
+                               total.map((item,index)=>(
+                                   item.data?<div className="greate-container he" key={index}>
+                                   <img src={item.data.imageUrl} alt=""/>
+                                   <span className="swiper-bottom jikedetail  twoline">{item.data.title} </span>
+                               <div ><span className="jikeprice">￥{item.data.price}</span>
+                                           <div className="littlecart">
+                                               <i className="iconfont in">&#xe64c;</i>
+                                           </div>
+                                       </div>
+                               </div>:''
+                               ))
+                            
+                            }
                         </div>
                 </div>
                 </div>
-              </div>
+                </div>
+                </Bscroll>
             </StoreStyle>
         )
+    }
+    componentDidMount(){
+        // 在这里进行进行调用redux中的函数
+        this.props.handleStoreAsncyData(2554,1065,1575113898840);
     }
 }
 

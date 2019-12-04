@@ -4,7 +4,6 @@ import routeEach from "./utils/routeEach"
 import {configRoute} from "./router"
 import TabBar from "./common/tabBar"
 
-// console.log(configRoute);
 class App extends React.Component {
     constructor() {
         super();

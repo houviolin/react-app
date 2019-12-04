@@ -1,9 +1,11 @@
 import {createStore,combineReducers,applyMiddleware} from "redux"
-import city from "./city/dispatcher"
+import storein from "./reducers/store"
+import shoppingstore from "./reducers/shopping"
+import timeliststore from "./reducers/timelist"
 import reduxThunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension"
 const reducers=combineReducers({
-    city
+    storein,shoppingstore,timeliststore
 })
 const store=createStore(reducers,composeWithDevTools(applyMiddleware(reduxThunk)))
 export default store

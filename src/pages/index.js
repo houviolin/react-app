@@ -15,7 +15,10 @@ export const Shopping = Loadable({
     loader:()=>import("./shopping"),
     loading:Loading
 })
-
+export const SpecilaCounuter = Loadable({
+    loader:()=>import("./specialcounter"),
+    loading:Loading
+})
 export const Worldwide = Loadable({
     loader:()=>import("./worldwide"),
     loading:Loading
@@ -91,5 +94,9 @@ export const Search =Loadable({
 })
 export const Zhekou =Loadable({
     loader:()=>import("./zhekou"),
+    loading:Loading
+})
+export const TimeLimit =Loadable({
+    loader:()=>import("./timeLimit"),
     loading:Loading
 })
