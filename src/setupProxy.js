@@ -16,7 +16,11 @@ module.exports = (app)=>{
     app.use("/publics",proxy({
         target:"https://orderserver.51tiangou.com",
         changeOrigin:true,
+    })),
+    app.use("/shopping",proxy({
+        target:" https://midway.51tiangou.com",
+        changeOrigin:true,
     }))
 }
-// https://midway.51tiangou.com
-// https://midway.51tiangou.com
+
+

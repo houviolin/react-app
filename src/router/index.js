@@ -1,4 +1,4 @@
-import {Store,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,Details,Cart} from "../pages"
+import {Store,TimeLimit,SpecilaCounuter,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,SelectStore,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,Details,Cart} from "../pages"
 
 export const TabBarRoute = [
     {
@@ -152,7 +152,22 @@ export const NotTabBarRoute = [
         path:"/cart",
         component:Cart,
         meta:{}
-    }
+    },  
+    {
+        path:"/specicounter",
+        component:SpecilaCounuter,
+        meta:{
+            requiredAuth:false
+        }
+    },
+    {
+        // pageType: 82id: 2573_: 1575341971279
+        path:"/timeLimit/:itemId/:pageType/:id/:_",
+        component:TimeLimit,
+        meta:{
+            requiredAuth:false
+        }
+    },
 ]
 
 export const configRoute = TabBarRoute.concat(NotTabBarRoute);
