@@ -45,8 +45,10 @@ class DetailItem extends React.Component{
     }
      componentDidMount(){
         this.props.handleDetailData();
+        let page=this.page
         this.refs.scroll.handlepullingUp(()=>{
-         
+            this.props.handleDetailData(page);
+            this.page+=10;
         })
 
     }
