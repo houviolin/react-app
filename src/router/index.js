@@ -1,4 +1,4 @@
-import {Store,TimeLimit,SpecilaCounuter,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,SelectStore,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,Details,Cart} from "../pages"
+import {Store,DetailList,Detail,TimeLimit,SpecilaCounuter,Goodgoods,Zhekou,Search,City,Shopping,Worldwide,Member,Login,Register,SelectStore,Discount,Essence,Active,Makeup,Home,Healthcare,Infant,National,Details,Cart} from "../pages"
 
 export const TabBarRoute = [
     {
@@ -167,6 +167,22 @@ export const NotTabBarRoute = [
         meta:{
             requiredAuth:false
         }
+    },
+    {
+        path:"/detaillist",
+        component:DetailList,
+        meta:{
+            requiredAuth:false
+        },
+        children:[
+            {
+                path:'/detaillist/detail',
+                component:Detail,
+                meta:{
+                    flag:true,
+                }
+            }    
+        ]
     },
 ]
 

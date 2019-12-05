@@ -145,15 +145,13 @@ class Store extends React.Component{
                          
                          {
                              one.map((item,index)=>(
-                                 
-                               
-                                    <div className="liji" key={index}>
+                                    <Link className="liji" key={index} to={'/detaillist'}>
                                         <div className="jike">
                                             <img src={item.imageUrl} alt=""/>
                                         </div>
                                         <span className="swiper-bottom jikedetail"></span>
                              <div ><span className="jikeprice">￥{item. priceString}</span><span className="zhekou">{item.discount}折</span></div>
-                                    </div>
+                                    </Link>
                                  
                              ))
                          }

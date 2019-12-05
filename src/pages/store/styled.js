@@ -4,13 +4,19 @@ width:100%;
 padding-bottom: 1.5rem;
 overflow-y: auto;
 height:100%;
+.total-container{
+    position:relative;
+    z-index:10;
+    background-color: rgb(206, 9, 9);
+
+}
 .color-red{
     background-image: url("https://image1.51tiangou.com/tgou2/img2/test/bg-jingpin.png"); 
     background-repeat: no-repeat; background-position: center top; background-size: 100%; 
 }
 .header{
     padding: .2666666667rem;
-    background-color: rgb(206, 9, 9);
+  
 }
 .tocity{
     display:inline-block;
@@ -55,7 +61,8 @@ height:100%;
 .swiper{
     overflow: hidden;
     padding:.4rem .2666666667rem;
-    background-color: rgb(206, 9, 9);
+    background-color: rgb(206,9,9);
+ 
 }
 .nav{
     padding-right:.4rem  .5333333333rem;
@@ -188,7 +195,6 @@ height:100%;
 .twoline{
     height: .8rem;
   line-height: .4rem;
-  width: 300px;
   display: -webkit-box;
   -webkit-line-clamp:2;
   -webkit-box-orient: vertical;

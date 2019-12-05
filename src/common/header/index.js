@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./index.css"
 class Header extends React.Component{
     render(){
@@ -7,7 +8,7 @@ class Header extends React.Component{
                 <div className="back">
                 <i className="iconfont">&#xe726;</i>
                 </div>
-                <div>折扣排行</div>
+                    <div>{this.props.title}</div>
                 <div className="gouwu">
                 <i className="iconfont">&#xe64c;</i>
                 </div>
@@ -19,3 +20,9 @@ class Header extends React.Component{
     }
 }
 export default Header
+Header.defaultProps={
+    title:'折扣排行'
+}
+Header.protoType={
+    title:PropTypes.string
+}
