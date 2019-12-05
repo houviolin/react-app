@@ -108,3 +108,12 @@ export const TimeLimit =Loadable({
     loader:()=>import("./timeLimit"),
     loading:Loading
 })
+export const Detail =Loadable({
+    loader:()=>import("./detailitem"),
+    loading:Loading
+})
+export const DetailList =Loadable({
+    loader:()=>import("./detail"),
+    loading:Loading
+})
+

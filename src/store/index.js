@@ -13,9 +13,8 @@ import register from "./reducers/register"
 import storein from "./reducers/store"
 import shoppingstore from "./reducers/shopping"
 import timeliststore from "./reducers/timelist"
-
+import detaillist from "./reducers/detaillist"
 import reduxThunk from "redux-thunk";
-
 import {composeWithDevTools} from "redux-devtools-extension"
 const reducers=combineReducers({
     city,
@@ -30,7 +29,8 @@ const reducers=combineReducers({
     storein,
     shoppingstore,
     timeliststore,
-    register
+    register,
+    detaillist
 
 })
 const store=createStore(reducers,composeWithDevTools(applyMiddleware(reduxThunk)))
