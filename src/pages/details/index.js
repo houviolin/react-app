@@ -1,6 +1,6 @@
 import React from "react"
 import { Details } from "./styled"
-import {Link,withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom"
 import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from "./mapStore"
 @connect(mapStateToProps, mapDispatchToProps)
@@ -28,7 +28,7 @@ class Detail extends React.Component {
                             </div>
                         </div>
                         <div className="header3">
-                            <div className="header3_box">
+                            <div className="header3_box" onClick={this.props.handle.bind(this)}>
                                 <i className="iconfont">&#xe64c;</i>
                             </div>
                             <div className="header3_box">
@@ -36,15 +36,22 @@ class Detail extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="main">
+                    <div className="main" id={this.props.match.params.id} ref="id">
                         <div className="pic">
-                            <img src={productlist1.imageUrl? productlist1.imageUrl : ''} alt=""/>
+                            <img src={productlist1.imageUrl? productlist1.imageUrl : ''} alt="" ref="imageUrl"/>
+                        </div>
+                        <div className="pri">
+                            <div className="xsqg"></div>
+                            <div className="price">
+                                ￥
+                                <span ref="price">{productlist2.price}</span>
+                            </div>
                         </div>
                         <div className="prodectName">
                             <div className="prodectcontent">
                                 <div className="prodecttitle">
                                     <img src="//image1.51tiangou.com/tgou2/img2/product/inter_store_tag.png" alt=""/>
-                                    <span>
+                                    <span ref="name">
                                         {productlist2.productName? productlist2.productName : ''}
                                     </span>
                                 </div>
@@ -54,7 +61,7 @@ class Detail extends React.Component {
                             </div>
                             <div className="prodectadd">
                                 <img src={productlist2.countryImageUrl? productlist2.countryImageUrl : ''} alt=""/>
-                                <span>{productlist2.storeName? productlist2.storeName : ''}</span>
+                                <span ref="address">{productlist2.storeName? productlist2.storeName : ''}</span>
                             </div>
                         </div>
                         <div className="see">
@@ -83,7 +90,7 @@ class Detail extends React.Component {
                             <img src="//image1.51tiangou.com/tgou2/img2/product/icon-pinpai.png" alt=""/>
                         </div>
                         <div className="footer_box">
-                            <div className="jrgwc">加入购物车</div>
+                            <div className="jrgwc" onClick={this.props.handleadd.bind(this)}>加入购物车</div>
                             <div className="msq">马上抢</div>
                         </div>
                     </div>

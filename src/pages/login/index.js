@@ -1,5 +1,10 @@
 import React from "react"
 import { LoginContainer } from "./styled"
+import {withRouter} from "react-router-dom"
+import {mapStateToProps,mapDispatchToProps} from "./mapState"
+import { connect } from "react-redux"
+@connect(mapStateToProps,mapDispatchToProps)
+@withRouter
 class Login extends React.Component {
     render() {
         return (
@@ -27,7 +32,7 @@ class Login extends React.Component {
                                             <img src="//image1.51tiangou.com/tgou2/img2/login/username.svg" alt=""/>
                                         </div>
                                         <div className="username_input">
-                                            <input type="text" placeholder="请输入11位手机号"/>
+                                            <input type="text" placeholder="请输入11位手机号" ref="username"/>
                                         </div>
                                     </div>
                                     <div className="password">
@@ -35,16 +40,16 @@ class Login extends React.Component {
                                             <img src="//image1.51tiangou.com/tgou2/img2/login/password.svg" alt=""/>
                                         </div>
                                         <div className="password_input">
-                                            <input type="passsword" placeholder="请输入6-16位密码"/>
+                                            <input type="passsword" placeholder="请输入6-16位密码" ref="password"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="form_login">
+                            <div className="form_login" onClick={this.props.handleLogin.bind(this)}>
                                 登陆
                             </div>
                             <div className="form_message">
-                                <span>免费注册</span> | <span>忘记密码</span>
+                                <span onClick={this.props.handleRegister.bind(this)}>免费注册</span> | <span>忘记密码</span>
                             </div>
                         </form>
                     </div>

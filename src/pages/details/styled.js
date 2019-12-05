@@ -107,6 +107,30 @@ overflow:auto;
                 height:100%;
             }
         }
+        .pri{
+            height:1rem;
+            width:7.5rem;
+            margin:0 auto;
+            background: url(//image1.51tiangou.com/tgou2/img2/product/bg-miaosha.png) no-repeat;
+            padding:0.1rem 0.2rem;
+            display:flex;
+            align-items:center;
+            .xsqg{
+                width:0.6rem;
+                height:0.54rem;
+                background: url(//image1.51tiangou.com/tgou2/img2/product/img-xianshimiaosha.png) no-repeat;
+                margin-right:0.2rem;
+            }
+            .price{
+                height:0.84rem;
+                line-height:0.84rem;
+                font-size:0.4rem;
+                color:#fff;
+                span{
+                    font-size:0.6rem;
+                }
+            }
+        }
         .prodectName{
             width:7.5rem;
             height:3.12rem;

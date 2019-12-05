@@ -4,7 +4,12 @@ export const CartContainer = styled.div`
 width:100%;
 height:100%;
 overflow:auto;
-.header{
+background-color: rgb(238, 238, 238);
+.cart{
+    width:100%;
+    height:100%;
+    overflow:auto;
+    .header{
         position:fixed;
         top:0;
         left:0;
@@ -13,6 +18,7 @@ overflow:auto;
         height:0.88rem;
         line-height:0.88rem;
         background:#fff;
+        border-bottom: 1px solid #ebebeb;
         div{
             float:left;
         }
@@ -72,4 +78,177 @@ overflow:auto;
             font-size:0.28rem;
         }
     }
+    .main{
+        width:100%;
+        min-height:5rem;
+        display:flex;
+        flex-direction:column;
+        margin-top:0.88rem;
+        .main_box{
+            width:100%;
+            height:3.9rem;
+            background:#fff;
+            margin-bottom:0.22rem;
+            .main_top{
+                width:100%;
+                padding:0.2rem;
+                height:0.8rem;
+                input{
+                    display:block;
+                    float:left;
+                    width:0.4rem;
+                    height:0.4rem;
+                    line-height:0.4ren;
+                }
+                .main_top_r{
+                    float:left;
+                    width:6.5rem;
+                    height:0.38rem;
+                    margin-left:0.2rem;
+                    span{
+                        display:block;
+                        float:left;
+                        padding:0 0.04rem;
+                        height:0.34rem;
+                        line-height:0.34rem;
+                    }
+                    span:nth-child(1){
+                        background:red;
+                        color:#fff;
+                        border-radius:0.01rem;
+                        text-align:center;
+                    }
+                    span:nth-child(2){
+                        margin-left:0.2rem;
+                    }
+                }
+            }
+            .main_contetn{
+                height:2.1rem;
+                padding:0.2rem;
+                display:flex;
+                justify-content:space-between;
+                align-items:center
+                input{
+                    display:block;
+                    float:left;
+                    width:0.4rem;
+                    height:0.4rem;
+                    line-height:0.4ren;
+                }
+                .main_content_box{
+                    width:6.5rem;
+                    height:1.9rem;
+                    .main_content_box_l{
+                        width:1.5rem;
+                        height:1.7rem;
+                        float:left;
+                        position:relative;
+                        img{
+                            position:absolute;
+                            width:1.5rem;
+                            height:1.5rem;
+                            top:0;
+                            bottom:0;
+                            left:0;
+                            right:0;
+                            margin:auto;
+                        }
+                    }
+                    .main_content_box_r{
+                        width:4.8rem;
+                        height:1.7rem;
+                        float:right;
+                        margin-left:0.2rem;
+                        padding-bottom:0.2rem;
+                        border-bottom:1px solid #ccc;
+                        .main_content_title{
+                            width:100%;
+                            height:0.68rem;
+                            line-height:0.34rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                        }
+                        .main_content_pir{
+                            height:0.8rem;
+                            position:relative;
+                            span:nth-child(1){
+                                float:left;
+                                display:block;
+                                height:0.8rem;
+                                line-height:0.8rem;
+                                color:#ff4c48
+                            }
+                            span:nth-child(2){
+                                display:block;
+                                position:absolute;
+                                top:0.2rem;
+                                right:0;
+                                height:0.48rem;
+                                div,input{
+                                    display:block;
+                                    float:left;
+                                    height:0.48rem;
+                                    border:1px solid #ccc;
+                                }
+                                div{
+                                    width:0.48rem;
+                                    text-align:center;
+                                    line-height:0.48rem;
+                                }
+                                input{
+                                    min-width:0.6rem;
+                                    text-align:center;
+                                    font-size:0.28rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .main_bottom{
+                height:1rem;
+                padding:0.2rem;
+                width:100%;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                .main_bottom_count{
+                    height:0.3rem;
+                    line-height:0.3rem;
+                    span{
+                        font-size:0.24rem;
+                        color:#666;
+                        
+                    }
+                    span:nth-child(2){
+                        color:#ff4c48;
+                        font-size:0.3rem;
+                        i{
+                            font-size:0.18rem;
+                            font-style:normal;
+                        }
+                    }
+                }
+                .mian_bottom_js{
+                    width:1.6rem;
+                    height:0.6rem;
+                    background:#ccc;
+                    border-radius:0.5rem;
+                    text-align:center;
+                    line-height:0.6rem;
+                    font-size:0.28rem;
+                    color:#fff;
+                }
+                .main_kong{
+
+                }
+            }
+        }
+    }
+}
+
 `

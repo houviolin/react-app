@@ -9,11 +9,13 @@ import home from "./reducers/home"
 import healthcare from "./reducers/healthcare"
 import infant from "./reducers/infant"
 import national from "./reducers/national"
+import register from "./reducers/register"
 import storein from "./reducers/store"
 import shoppingstore from "./reducers/shopping"
 import timeliststore from "./reducers/timelist"
+
 import reduxThunk from "redux-thunk";
-import reduxThunk from "redux-thunk";
+
 import {composeWithDevTools} from "redux-devtools-extension"
 const reducers=combineReducers({
     city,
@@ -24,7 +26,11 @@ const reducers=combineReducers({
     home,
     healthcare,
     infant,
-    national,storein,shoppingstore,timeliststore
+    national,
+    storein,
+    shoppingstore,
+    timeliststore,
+    register
 
 })
 const store=createStore(reducers,composeWithDevTools(applyMiddleware(reduxThunk)))

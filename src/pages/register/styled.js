@@ -85,7 +85,7 @@ background: rgb(238, 239, 244);
                     }
                 }
             }
-            .form_login{
+            .form_register{
                 width:100%;
                 height:0.92rem;
                 margin-top:0.4rem;

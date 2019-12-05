@@ -2,12 +2,17 @@ import React from "react"
 import { NavLink,} from "react-router-dom"
 import {WorldWide} from "./styled.js"
 import { TabBarRoute } from "../../router/index"
+import {withRouter} from "react-router-dom"
+@withRouter
 class Worldwide extends React.Component {
     constructor() {
         super()
         this.state = {
             navlist: [],
         }
+    }
+    handle(){
+        this.props.history.push("/cart");
     }
     render() {
         // console.log(TabBarRoute[3].children);
@@ -29,7 +34,7 @@ class Worldwide extends React.Component {
                             </div>
                         </div>
                         <div className="header_cart">
-                            <i className="iconfont">&#xe655;</i>
+                            <i className="iconfont" onClick={this.handle.bind(this)}>&#xe655;</i>
                         </div>
                     </div>
                     <div className="nav">
